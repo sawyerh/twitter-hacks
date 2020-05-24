@@ -1,4 +1,4 @@
-const Twitter = require("twitter");
+import Twitter = require("twitter");
 
 /**
  * Configure Twitter client
@@ -11,7 +11,7 @@ const config = {
 };
 const client = new Twitter(config);
 
-function getLatestTweets(): Promise<Tweet[]> {
+function getLatestTweets(): Promise<Twitter.Tweet[]> {
   return client.get("statuses/home_timeline", {
     exclude_replies: true,
     include_entities: true,
@@ -19,8 +19,8 @@ function getLatestTweets(): Promise<Tweet[]> {
   });
 }
 
-async function getTweetsWithLinks(): Promise<Tweet[]> {
-  let tweets = await getLatestTweets();
+async function getTweetsWithLinks(): Promise<Twitter.Tweet[]> {
+  const tweets = await getLatestTweets();
 
   return tweets.filter((tweet): boolean => !!tweet.entities.urls.length);
 }
