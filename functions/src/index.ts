@@ -10,8 +10,9 @@ const tweetsCollectionName = "tweets";
 /**
  * Get the latest tweets that include an external link
  */
-export const getTweets = functions.https.onRequest(
-  async (_request, response) => {
+export const getTweets = functions.pubsub
+  .schedule("every 5 minutes")
+  .onRun(async () => {
     // Get the latest tweet so we can query only tweets posted after it
     const existingTweets = await db
       .collection(tweetsCollectionName)
@@ -35,6 +36,4 @@ export const getTweets = functions.https.onRequest(
     );
 
     console.log(`${tweets.length} tweets had links`);
-    response.send(tweets);
-  }
-);
+  });
