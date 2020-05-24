@@ -12,8 +12,8 @@ const twitter = new Twitter({
  * Get latest tweets from the people I follow
  * @param since_id - Return results with an ID greater than (that is, more recent than) the specified ID.
  */
-function getLatestTweets(since_id?: number): Promise<Twitter.Tweet[]> {
-  return twitter.get("statuses/home_timeline", {
+async function getLatestTweets(since_id?: string): Promise<Twitter.Tweet[]> {
+  const tweets = await twitter.get("statuses/home_timeline", {
     since_id,
     count: 200,
     // Include replies because some people include a link in a follow-up in their threads
@@ -23,6 +23,14 @@ function getLatestTweets(since_id?: number): Promise<Twitter.Tweet[]> {
     // Prevent truncation, which messes up which URL entities are returned
     tweet_mode: "extended",
   });
+
+  return tweets.map(
+    (tweet): Twitter.Tweet => {
+      // Store a JS date so we can query/sort database records by this timestamp
+      tweet.created_at_timestamp = new Date(tweet.created_at);
+      return tweet;
+    }
+  );
 }
 
 /**
@@ -31,7 +39,7 @@ function getLatestTweets(since_id?: number): Promise<Twitter.Tweet[]> {
  * @param since_id - Return results with an ID greater than (that is, more recent than) the specified ID.
  */
 async function getTweetsThatIncludeLinks(
-  since_id?: number
+  since_id?: string
 ): Promise<Twitter.Tweet[]> {
   const tweets = await getLatestTweets(since_id);
   const tweetURLRegex = RegExp(/^https:\/\/twitter.com/);

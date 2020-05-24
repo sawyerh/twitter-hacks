@@ -25,6 +25,9 @@ declare module "twitter" {
 
     interface Tweet {
       id: number;
+      id_str: string;
+      created_at: string;
+      created_at_timestamp: Date;
       full_text: string;
       entities: {
         urls: URLEntity[];
