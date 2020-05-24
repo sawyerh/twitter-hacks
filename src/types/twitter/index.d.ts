@@ -17,13 +17,17 @@ declare module "twitter" {
       access_token_secret: string;
     }
 
+    interface URLEntity {
+      // URL pasted/typed into Tweet (e.g. bit.ly/2so49n2)
+      display_url: string;
+      // Expanded version of display_url (e.g. http://bit.ly/2so49n2)
+      expanded_url: string;
+    }
+
     interface Tweet {
       id: number;
       entities: {
-        urls: any[];
-      };
-      extended_entities: {
-        media: any[];
+        urls: URLEntity[];
       };
       user: {
         name: string;
@@ -34,15 +38,15 @@ declare module "twitter" {
       text: string;
     }
 
-    interface TweetMedia {
+    interface Media {
       media_url_https: Link;
       sizes: {
-        thumb: TweetMediaSizeEntry;
+        thumb: MediaSizeEntry;
       };
       type: "photo" | string;
     }
 
-    interface TweetMediaSizeEntry {
+    interface MediaSizeEntry {
       w: number;
       h: number;
       resize: "crop" | "fit";
