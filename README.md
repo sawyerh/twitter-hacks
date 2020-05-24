@@ -2,8 +2,8 @@
 
 ### Root `package.json`
 
-- `firebase:deploy` - Deploy all Firebase services
-- `firebase:login` - Log into Firebase
+- `deploy` - Deploy all Firebase services
+- `login` - Log into Firebase
 - `lint`
 
 ### `functions/package.json`

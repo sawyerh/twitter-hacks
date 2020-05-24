@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Shared tooling for our entire Firebase project (functions and website)",
   "scripts": {
-    "firebase:deploy": "firebase deploy",
-    "firebase:login": "firebase login",
+    "deploy": "firebase deploy",
+    "login": "firebase login",
     "lint": "eslint . --ext .js,.ts,.tsx"
   },
   "engines": {
