@@ -2,9 +2,13 @@ node_modules/
 *.log
 *.cache
 
-## Compiled JavaScript files
-**/*.js
+## Compiled files
+lib/
+site/out/
 **/*.js.map
+
+## Next.js
+.next
 
 # Typescript v1 declaration files
 typings/

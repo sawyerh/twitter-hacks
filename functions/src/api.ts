@@ -1,18 +1,24 @@
+/**
+ * Handler for /api route requests
+ */
 import * as functions from "firebase-functions";
 import admin = require("firebase-admin");
-// import { writeLog } from "./services/logger";
+import cors = require("cors");
+import express = require("express");
 
 const db = admin.firestore();
 const collection = db.collection("tweets");
+const app = express();
+
+/**
+ * Middleware
+ */
+app.use(cors({ origin: true }));
 
 /**
  * Get the latest tweets that include an external link
  */
-exports.tweets = functions.https.onRequest(async (req, res) => {
-  if (req.method !== "GET") {
-    return res.status(403).send("Forbidden!");
-  }
-
+app.get("/api/tweets", async (req, res) => {
   try {
     const { lastId } = req.query;
     const invalidIdRegex = new RegExp(/\D/);
@@ -27,9 +33,11 @@ exports.tweets = functions.https.onRequest(async (req, res) => {
     const queryResults = await query.get();
     const tweets = queryResults.docs.map((doc) => doc.data());
 
-    return res.status(200).json(tweets);
+    return res.status(200).send(JSON.stringify(tweets));
   } catch (error) {
     console.error(error);
     return res.status(500).send();
   }
 });
+
+module.exports = functions.https.onRequest(app);
