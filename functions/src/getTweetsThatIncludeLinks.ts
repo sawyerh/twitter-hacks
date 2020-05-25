@@ -1,5 +1,6 @@
 import * as functions from "firebase-functions";
 import Twitter = require("twitter");
+import { writeLog } from "./services/logger";
 
 const twitter = new Twitter({
   consumer_key: functions.config().twitter.consumer_key || "",
@@ -24,6 +25,11 @@ async function getLatestTweets(since_id?: string): Promise<Twitter.Tweet[]> {
     tweet_mode: "extended",
   });
 
+  writeLog("getLatestTweets", `Received ${tweets.length} tweets`, {
+    count: tweets.length,
+    since_id,
+  });
+
   return tweets.map(
     (tweet): Twitter.Tweet => {
       // Store a JS date so we can query/sort database records by this timestamp
@@ -44,7 +50,7 @@ async function getTweetsThatIncludeLinks(
   const tweets = await getLatestTweets(since_id);
   const tweetURLRegex = RegExp(/^https:\/\/twitter.com/);
 
-  return tweets.filter((tweet): boolean => {
+  const tweetsWithLinks = tweets.filter((tweet): boolean => {
     let { urls } = tweet.entities;
 
     // Exclude Twitter URLs which are used for quoted tweets and threads
@@ -56,6 +62,16 @@ async function getTweetsThatIncludeLinks(
 
     return !!urls.length;
   });
+
+  writeLog(
+    "getTweetsThatIncludeLinks",
+    `Found ${tweetsWithLinks.length} tweets with links`,
+    {
+      count: tweetsWithLinks.length,
+    }
+  );
+
+  return tweetsWithLinks;
 }
 
 export default getTweetsThatIncludeLinks;

@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
-import getTweetsThatIncludeLinks from "./getTweetsThatIncludeLinks";
 import admin = require("firebase-admin");
+import getTweetsThatIncludeLinks from "./getTweetsThatIncludeLinks";
 
 admin.initializeApp();
 
@@ -25,7 +25,6 @@ export const getTweets = functions.pubsub
       : existingTweets.docs[0].get("id_str");
 
     // Get the newest tweets
-    console.log(`Checking for any tweets posted after Tweet ${latestTweetId}`);
     const tweets = await getTweetsThatIncludeLinks(latestTweetId);
 
     // Save the latest tweets to our database
@@ -34,6 +33,4 @@ export const getTweets = functions.pubsub
         db.collection(tweetsCollectionName).doc(tweet.id_str).set(tweet)
       )
     );
-
-    console.log(`${tweets.length} tweets had links`);
   });

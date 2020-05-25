@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "firebase emulators:start --only functions,pubsub & npm run build:watch",
+    "serve": "firebase emulators:start --only functions,pubsub",
     "preserver": "npm run build",
     "set-env": "firebase functions:config:get > .runtimeconfig.json",
     "shell": "npm run build && firebase functions:shell",
@@ -13,6 +13,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@google-cloud/logging": "^7.3.0",
     "firebase-admin": "^8.10.0",
     "firebase-functions": "^3.6.1",
     "twitter": "^1.7.1"
