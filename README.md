@@ -8,9 +8,9 @@ Run `build:watch` in a Terminal or through [VS Code's "Build task" runner](https
 
 1. `npm run shell`
 1. Call the function name:
-    ```sh
-    getTweets()
-    ```
+   ```sh
+   pubsub.getTweets()
+   ```
 
 ### View logs
 
