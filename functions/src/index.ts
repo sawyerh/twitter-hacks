@@ -11,7 +11,7 @@ const tweetsCollectionName = "tweets";
  * Get the latest tweets that include an external link
  */
 export const getTweets = functions.pubsub
-  .schedule("every 5 minutes")
+  .schedule("every 15 minutes")
   .onRun(async () => {
     // Get the latest tweet so we can query only tweets posted after it
     const existingTweets = await db
