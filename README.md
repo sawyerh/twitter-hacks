@@ -20,6 +20,8 @@ resource.labels.function_name="CustomMetrics"
 jsonPayload.event="my-event"
 ```
 
+- [View or create dashboards](https://console.cloud.google.com/monitoring/dashboards)
+
 ## Scripts
 
 ### Root `package.json`

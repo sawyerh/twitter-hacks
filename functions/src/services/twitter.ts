@@ -1,6 +1,9 @@
+/**
+ * @file Twitter API methods
+ */
 import * as functions from "firebase-functions";
 import Twitter = require("twitter");
-import { writeLog } from "./services/logger";
+import { writeLog } from "./logger";
 
 const twitter = new Twitter({
   consumer_key: functions.config().twitter.consumer_key || "",
@@ -44,7 +47,7 @@ async function getLatestTweets(since_id?: string): Promise<Twitter.Tweet[]> {
  * only those that include at least one external link
  * @param since_id - Return results with an ID greater than (that is, more recent than) the specified ID.
  */
-async function getTweetsThatIncludeLinks(
+export async function getTweetsThatIncludeLinks(
   since_id?: string
 ): Promise<Twitter.Tweet[]> {
   const tweets = await getLatestTweets(since_id);
@@ -73,5 +76,3 @@ async function getTweetsThatIncludeLinks(
 
   return tweetsWithLinks;
 }
-
-export default getTweetsThatIncludeLinks;

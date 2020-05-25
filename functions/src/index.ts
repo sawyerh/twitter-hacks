@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
 import admin = require("firebase-admin");
-import getTweetsThatIncludeLinks from "./getTweetsThatIncludeLinks";
+import { getTweetsThatIncludeLinks } from "./services/twitter";
 
 admin.initializeApp();
 
