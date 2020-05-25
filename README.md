@@ -1,5 +1,9 @@
 ## Tips
 
+### Watch for changes
+
+Run `build:watch` in a Terminal or through [VS Code's "Build task" runner](https://code.visualstudio.com/docs/typescript/typescript-compiling#_step-2-run-the-typescript-build)
+
 ### Locally trigger a scheduled function
 
 1. `npm run shell`
@@ -21,24 +25,6 @@ jsonPayload.event="my-event"
 ```
 
 - [View or create dashboards](https://console.cloud.google.com/monitoring/dashboards)
-
-## Scripts
-
-### Root `package.json`
-
-- `deploy` - Deploy all Firebase services
-- `login` - Log into Firebase
-- `lint`
-
-### `functions/package.json`
-
-- `build` - Compile Typescript
-- `build:watch` - Compile Typescript and watch for changes
-- `serve` - Run the Firebase Functions emulator
-- `set-env` - Create a local copy of the Firebase environment configuration to support local development
-- `shell`
-- `start`
-- `logs`
 
 ## Environment configuration
 
