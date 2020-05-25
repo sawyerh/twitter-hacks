@@ -5,8 +5,8 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "serve": "firebase emulators:start --only functions,pubsub",
-    "preserver": "npm run build",
+    "deploy": "firebase deploy --only functions",
+    "serve": "npm run build && firebase emulators:start --only functions,pubsub",
     "set-env": "firebase functions:config:get > .runtimeconfig.json",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
