@@ -4,13 +4,20 @@
 
 Run `build:watch` in a Terminal or through [VS Code's "Build task" runner](https://code.visualstudio.com/docs/typescript/typescript-compiling#_step-2-run-the-typescript-build)
 
-### Locally trigger a scheduled function
+### Locally trigger a function
 
 1. `npm run shell`
 1. Call the function name:
+
    ```sh
    pubsub.getTweets()
    ```
+
+   ```sh
+   api.tweets.get('?lastId=123')
+   ```
+
+```
 
 ### View logs
 
@@ -19,10 +26,12 @@ View detailed logs in [StackDriver](https://console.cloud.google.com/project/_/l
 In the StackDriver Logging UI, use the advanced filter field to narrow the log scope to the function you want to analyze, then click Submit Filter to filter the logs. For example, you could analyze only logs from a single function matching a custom event:
 
 ```
+
 resource.type="cloud_function"
 resource.labels.function_name="CustomMetrics"
 jsonPayload.event="my-event"
-```
+
+````
 
 - [View or create dashboards](https://console.cloud.google.com/monitoring/dashboards)
 
@@ -41,7 +50,7 @@ See the `set-env` script in `functions/package.json`
     "consumer_key": string
   }
 }
-```
+````
 
 ### Set Functions environment config
 
