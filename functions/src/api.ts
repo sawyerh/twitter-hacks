@@ -33,7 +33,7 @@ app.get("/api/tweets", async (req, res) => {
     const queryResults = await query.get();
     const tweets = queryResults.docs.map((doc) => doc.data());
 
-    return res.status(200).send(JSON.stringify(tweets));
+    return res.status(200).send(tweets);
   } catch (error) {
     console.error(error);
     return res.status(500).send();
