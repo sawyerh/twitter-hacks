@@ -12,6 +12,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
   ],
+  globals: {
+    twttr: true,
+  },
   rules: {
     "@typescript-eslint/no-var-requires": "off",
     "react/prop-types": "off",

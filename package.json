@@ -4,6 +4,7 @@
   "description": "Shared tooling for our entire Firebase project (functions and website)",
   "scripts": {
     "deploy": "firebase deploy",
+    "dev": "npm run serve & npm run dev --prefix site",
     "login": "firebase login",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "serve": "firebase emulators:start --only functions,hosting"
