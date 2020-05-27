@@ -1,13 +1,14 @@
 /** @jsx jsx */
+import TweetText from "./TweetText";
 import { jsx } from "@emotion/react";
 import theme from "../theme";
-import twitter from "twitter-text";
 
 interface TweetProps {
   id_str: string;
   full_text: string;
   entities: {
     urls: Array<{
+      url: string;
       // URL pasted/typed into Tweet (e.g. github.com/samccone/bundl…)
       display_url: string;
       // Expanded version of display_url (e.g. https://github.com/samccone/bundle-buddy)
@@ -24,7 +25,7 @@ interface TweetProps {
 }
 
 function Tweet(props: TweetProps): JSX.Element {
-  const { id_str, full_text, user } = props;
+  const { id_str, user } = props;
 
   return (
     <article
@@ -35,12 +36,7 @@ function Tweet(props: TweetProps): JSX.Element {
         marginBottom: theme.spacer * 3,
       }}
     >
-      <div
-        className="tweet__text"
-        dangerouslySetInnerHTML={{
-          __html: twitter.autoLink(twitter.htmlEscape(full_text)),
-        }}
-      />
+      <TweetText full_text={props.full_text} entities={props.entities} />
       <div className="tweet__details">
         <a href={`https://twitter.com/${user.screen_name}`} rel="nofollow">
           <img src={user.profile_image_url_https} width="20" height="20" />
