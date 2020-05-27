@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
+import theme from "../theme";
 import twitter from "twitter-text";
 
 interface TweetProps {
@@ -28,8 +29,10 @@ function Tweet(props: TweetProps): JSX.Element {
   return (
     <article
       css={{
-        border: "1px solid red",
+        border: `1px solid ${theme.colors.lightGray}`,
         borderRadius: 10,
+        padding: theme.spacer * 3,
+        marginBottom: theme.spacer * 3,
       }}
     >
       <div
