@@ -33,6 +33,10 @@ app.get("/api/tweets", async (req, res) => {
     const queryResults = await query.get();
     const tweets = queryResults.docs.map((doc) => doc.data());
 
+    // Cache query for 10 minutes
+    // https://firebase.google.com/docs/hosting/manage-cache
+    res.set("Cache-Control", "public, max-age=600, s-maxage=600");
+
     return res.status(200).send(tweets);
   } catch (error) {
     console.error(error);
