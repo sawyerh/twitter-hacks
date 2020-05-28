@@ -22,7 +22,6 @@ function TweetBody(props: TweetBodyProps): JSX.Element {
 
   return (
     <div
-      className="tweet__text"
       css={{
         "a:not(.username)": {
           backgroundColor: theme.colors.lighterGray,

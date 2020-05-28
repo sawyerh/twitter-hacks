@@ -60,6 +60,7 @@ declare module "twitter" {
 
     interface MediaEntity {
       id: number;
+      expanded_url: string;
       media_url_https: string;
       type: "animated_gif" | "photo" | "video";
       sizes: {
