@@ -16,10 +16,10 @@ function Index(): JSX.Element {
   const getTweets = async (lastId?: string) => {
     setIsLoading(true);
     const scrollY = window.scrollY;
-    const url = new URL(`${apiRoot}/api/tweets`);
+    let url = `${apiRoot}/api/tweets`;
 
     if (lastId) {
-      url.search = new URLSearchParams({ lastId }).toString();
+      url = `${url}?lastId=${lastId}`;
     }
 
     const response = await fetch(url.toString());
