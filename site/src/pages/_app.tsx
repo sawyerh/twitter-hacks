@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { CacheProvider, Global, jsx } from "@emotion/react";
-import { cache } from "@emotion/css";
+import { Global, jsx } from "@emotion/react";
 import theme from "../theme";
 
 export default function App({ Component, pageProps }): JSX.Element {
@@ -8,12 +7,14 @@ export default function App({ Component, pageProps }): JSX.Element {
     <main
       css={{
         maxWidth: "55ch",
-        margin: `${theme.spacer & 6} auto`,
+        margin: `${theme.spacer * 6}px auto`,
       }}
     >
       <Global
         styles={{
           body: {
+            background: theme.colors.lighterGray,
+            color: theme.colors.gray,
             fontFamily: theme.fontFamily,
             fontSize: theme.fontSizes.body,
             lineHeight: 1.5,
@@ -23,9 +24,7 @@ export default function App({ Component, pageProps }): JSX.Element {
           },
         }}
       />
-      <CacheProvider value={cache}>
-        <Component {...pageProps} />
-      </CacheProvider>
+      <Component {...pageProps} />
     </main>
   );
 }

@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import TweetText from "./TweetText";
+import TweetHeader from "./TweetHeader";
+import TweetBody from "./TweetBody";
 import { jsx } from "@emotion/react";
 import theme from "../theme";
 
@@ -25,29 +26,18 @@ interface TweetProps {
 }
 
 function Tweet(props: TweetProps): JSX.Element {
-  const { id_str, user } = props;
-
   return (
     <article
       css={{
+        background: theme.colors.white,
         border: `1px solid ${theme.colors.lightGray}`,
         borderRadius: 10,
         padding: theme.spacer * 3,
         marginBottom: theme.spacer * 3,
       }}
     >
-      <TweetText full_text={props.full_text} entities={props.entities} />
-      <div className="tweet__details">
-        <a href={`https://twitter.com/${user.screen_name}`} rel="nofollow">
-          <img src={user.profile_image_url_https} width="20" height="20" />
-        </a>
-        <a
-          href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
-          title="View original Tweet"
-        >
-          🔗
-        </a>
-      </div>
+      <TweetHeader id_str={props.id_str} user={props.user} />
+      <TweetBody full_text={props.full_text} entities={props.entities} />
     </article>
   );
 }

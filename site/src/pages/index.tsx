@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import LoadingIcon from "../components/LoadingIcon";
 import React from "react";
 import TweetsList from "../components/TweetsList";
 
@@ -25,9 +26,7 @@ function Index(): JSX.Element {
   }, []);
 
   return (
-    <main>
-      {isLoading ? <p>Loading&hellip;</p> : <TweetsList tweets={tweets} />}
-    </main>
+    <main>{isLoading ? <LoadingIcon /> : <TweetsList tweets={tweets} />}</main>
   );
 }
 
