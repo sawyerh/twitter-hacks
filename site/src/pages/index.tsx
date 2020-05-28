@@ -43,7 +43,17 @@ function Index(): JSX.Element {
       <TweetsList tweets={tweets} />
       {isLoading && <LoadingIcon />}
       {!isLoading && (
-        <div css={{ textAlign: "center" }}>
+        <div
+          css={{
+            /**
+             * Add extra spacing towards bottom to address weird iOS behavior where it
+             * shows the browser chrome when you tap the button because it's so close
+             * to the bottom of the screen
+             */
+            marginBottom: theme.spacer * 8,
+            textAlign: "center",
+          }}
+        >
           <button
             css={{
               appearance: "none",
@@ -52,9 +62,10 @@ function Index(): JSX.Element {
               borderRadius: 3,
               color: theme.colors.white,
               fontFamily: theme.fontFamily,
-              fontSize: theme.fontSizes.small,
+              fontSize: theme.fontSizes.body,
               fontWeight: "bold",
-              padding: theme.spacer,
+              padding: theme.spacer * 2,
+              width: "100%",
 
               ":hover": {
                 background: theme.colors.darkBlue,

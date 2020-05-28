@@ -27,6 +27,11 @@ export default class MyDocument extends Document<StyledDocumentProps> {
     return (
       <html>
         <Head>
+          <title>Tweets with links, for @sawyerh</title>
+          <meta
+            name="description"
+            content="Only Tweets with links, from accounts followed by @sawyerh"
+          />
           <style
             data-emotion-css={this.props.ids.join(" ")}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
