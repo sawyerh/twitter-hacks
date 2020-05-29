@@ -39,8 +39,6 @@ From `functions/`, run:
    api.tweets.get('?lastId=123')
    ```
 
-```
-
 ### View logs
 
 View detailed logs in [StackDriver](https://console.cloud.google.com/project/_/logs?service=cloudfunctions.googleapis.com&advancedFilter=resource.type%3D%22cloud_function%22%0A)
@@ -48,14 +46,12 @@ View detailed logs in [StackDriver](https://console.cloud.google.com/project/_/l
 In the StackDriver Logging UI, use the advanced filter field to narrow the log scope to the function you want to analyze, then click Submit Filter to filter the logs. For example, you could analyze only logs from a single function matching a custom event:
 
 ```
-
 resource.type="cloud_function"
 resource.labels.function_name="CustomMetrics"
 jsonPayload.event="my-event"
+```
 
-````
-
-- [View or create dashboards](https://console.cloud.google.com/monitoring/dashboards)
+[View or create dashboards](https://console.cloud.google.com/monitoring/dashboards)
 
 ## Environment configuration
 
@@ -72,7 +68,7 @@ See the `set-env` script in `functions/package.json`
     "consumer_key": string
   }
 }
-````
+```
 
 ### Set Functions environment config
 
