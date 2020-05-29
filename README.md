@@ -1,5 +1,11 @@
 🏡 **A serverless web app for archiving and viewing tweets with links from accounts I follow.**
 
+## Overview
+
+- Firebase Function runs on a recurring schedule to fetch the latest tweets from accounts I follow
+- Firestore database stores the tweets
+- Firebase Hosting serves the Next.js frontend, which queries tweets using a Firebase Function as the API endpoint
+
 ## Tips
 
 ### Run in dev mode
