@@ -23,6 +23,7 @@ function TweetHeader(props: TweetHeaderProps): JSX.Element {
         title="View original tweet"
       >
         <img
+          alt={`Avatar for ${user.name}`}
           css={{
             borderRadius: "50%",
             verticalAlign: "bottom",

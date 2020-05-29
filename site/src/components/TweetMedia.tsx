@@ -18,8 +18,13 @@ function TweetMedia(props: TweetMediaProps): JSX.Element {
     >
       {media.map((entity) => {
         return (
-          <a href={entity.expanded_url} key={entity.id}>
+          <a
+            href={entity.expanded_url}
+            key={entity.id}
+            title={`View ${entity.type.replace("_", " ")} on Twitter`}
+          >
             <img
+              alt=""
               css={{
                 maxWidth: "100%",
               }}

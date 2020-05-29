@@ -5,8 +5,8 @@
 const theme = {
   spacer: 8,
   colors: {
-    blue: "#4778d4",
-    darkBlue: "#2457b7",
+    blue: "#2060d6",
+    darkBlue: "#0240b3",
     lighterGray: "#eaeff9",
     lightGray: "#d3dbea",
     gray: "#4c4d50",

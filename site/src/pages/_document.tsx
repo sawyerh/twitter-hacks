@@ -25,7 +25,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
 
   render(): JSX.Element {
     return (
-      <html>
+      <html lang="en-US">
         <Head>
           <meta
             name="description"
