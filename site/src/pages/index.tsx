@@ -48,16 +48,6 @@ function Index(): JSX.Element {
       <TweetsList tweets={tweets} />
       {isLoading && <LoadingIcon />}
       {!isLoading && <LoadMoreButton onClick={loadNextPage} />}
-      <p
-        css={{
-          fontSize: theme.fontSizes.small,
-          textAlign: "center",
-          margin: 0,
-        }}
-      >
-        Tweets are from accounts followed by&nbsp;
-        <a href="https://twitter.com/sawyerh">@sawyerh</a>
-      </p>
     </main>
   );
 }
