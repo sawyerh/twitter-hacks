@@ -1,9 +1,11 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import LoadingIcon from "../components/LoadingIcon";
 import LoadMoreButton from "../components/LoadMoreButton";
-import React from "react";
 import TweetsList from "../components/TweetsList";
+import theme from "../theme";
 
 // Hack to allow us to run the Firebase Hosting emulator on a separate port from the Next.js server.
 const apiRoot =
@@ -46,6 +48,16 @@ function Index(): JSX.Element {
       <TweetsList tweets={tweets} />
       {isLoading && <LoadingIcon />}
       {!isLoading && <LoadMoreButton onClick={loadNextPage} />}
+      <p
+        css={{
+          fontSize: theme.fontSizes.small,
+          textAlign: "center",
+          margin: 0,
+        }}
+      >
+        Tweets are from accounts followed by&nbsp;
+        <a href="https://twitter.com/sawyerh">@sawyerh</a>
+      </p>
     </main>
   );
 }
