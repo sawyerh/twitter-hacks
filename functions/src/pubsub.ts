@@ -28,7 +28,14 @@ exports.getTweets = functions.pubsub
 
     // Save the latest tweets to our database
     await Promise.all(
-      tweets.map((tweet) => collection.doc(tweet.id_str).set(tweet))
+      tweets.map(async (tweet) => {
+        try {
+          await collection.doc(tweet.id_str).set(tweet);
+        } catch (error) {
+          console.error(`Encountered error saving a tweet`, { tweet });
+          throw error;
+        }
+      })
     );
   });
 
