@@ -6,6 +6,10 @@
 - Firestore database stores the tweets
 - Firebase Hosting serves the Next.js frontend, which queries tweets using a Firebase Function as the API endpoint
 
+## Caveats
+
+This is the first time I've used TypeScript and CSS-in-JS, so there's probably some things not best practice happening in here.
+
 ## Tips
 
 ### Run in dev mode
