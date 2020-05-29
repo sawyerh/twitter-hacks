@@ -43,7 +43,7 @@ function Index(): JSX.Element {
   return (
     <main>
       <Head>
-        <title>Tweets with links, for @sawyerh</title>
+        <title>Tweets with links</title>
       </Head>
       <TweetsList tweets={tweets} />
       {isLoading && <LoadingIcon />}

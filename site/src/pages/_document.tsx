@@ -29,7 +29,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
         <Head>
           <meta
             name="description"
-            content="Only Tweets with links, from accounts followed by @sawyerh"
+            content="Only Tweets with links, from accounts I follow."
           />
           <link rel="icon" href="/favicon.png" />
           <link rel="apple-touch-icon" href="/app-icon.png" />
