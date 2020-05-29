@@ -1,10 +1,22 @@
+🏡 **A serverless web app for archiving and viewing tweets with links from accounts I follow.**
+
 ## Tips
+
+### Run in dev mode
+
+From the root of the repo, run:
+
+```
+npm run dev
+```
 
 ### Watch for changes
 
 Run `build:watch` in a Terminal or through [VS Code's "Build task" runner](https://code.visualstudio.com/docs/typescript/typescript-compiling#_step-2-run-the-typescript-build)
 
 ### Locally trigger a function
+
+From `functions/`, run:
 
 1. `npm run shell`
 1. Call the function name:
