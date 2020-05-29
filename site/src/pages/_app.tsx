@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }): JSX.Element {
     <main
       css={{
         maxWidth: "55ch",
-        margin: `${theme.spacer * 6}px auto`,
+        margin: `${theme.spacer * 4}px auto`,
       }}
     >
       <Global

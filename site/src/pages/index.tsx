@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 import LoadingIcon from "../components/LoadingIcon";
 import TweetsList from "../components/TweetsList";
 import theme from "../theme";
@@ -40,6 +41,9 @@ function Index(): JSX.Element {
 
   return (
     <main>
+      <Head>
+        <title>Tweets with links, for @sawyerh</title>
+      </Head>
       <TweetsList tweets={tweets} />
       {isLoading && <LoadingIcon />}
       {!isLoading && (
