@@ -10,7 +10,11 @@ function TweetBody(props: TweetBodyProps): JSX.Element {
   // Auto-link URLs, usernames, hashtags, and add line breaks
   let formattedText = twitter
     .autoLink(twitter.htmlEscape(props.full_text))
-    .replace(/\n/g, "<br />");
+    // add line breaks
+    .replace(/\n/g, "<br />")
+    // remove parenthesis from around a link
+    .replace("(<a", "<a")
+    .replace("a>)", "a>");
 
   // Replace t.co URL with display URL
   props.entities.urls.forEach((entity) => {
