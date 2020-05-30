@@ -10,6 +10,7 @@ import Document, {
 } from "next/document";
 import React from "react";
 import { extractCritical } from "@emotion/server";
+import theme from "../theme";
 
 interface StyledDocumentProps {
   ids: Array<string>;
@@ -33,8 +34,12 @@ export default class MyDocument extends Document<StyledDocumentProps> {
           />
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.png" />
+
           <link rel="apple-touch-icon" href="/app-icon.png" />
           <meta name="apple-mobile-web-app-title" content="Tweet Links" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="theme-color" content={theme.colors.blue} />
 
           <style
             data-emotion-css={this.props.ids.join(" ")}

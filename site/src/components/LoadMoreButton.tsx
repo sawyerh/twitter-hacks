@@ -17,13 +17,9 @@ function LoadingMoreButton(props: LoadingMoreButtonProps): JSX.Element {
     >
       <button
         css={{
-          appearance: "none",
           background: theme.colors.blue,
-          border: 0,
           borderRadius: 3,
           color: theme.colors.white,
-          fontFamily: theme.fontFamily,
-          fontSize: theme.fontSizes.body,
           fontWeight: "bold",
           padding: theme.spacer * 2,
           width: "100%",

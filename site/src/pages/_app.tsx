@@ -22,6 +22,14 @@ export default function App({ Component, pageProps }): JSX.Element {
           a: {
             color: theme.colors.blue,
           },
+          button: {
+            appearance: "none",
+            background: "none",
+            border: 0,
+            fontFamily: theme.fontFamily,
+            fontSize: theme.fontSizes.body,
+            lineHeight: 1,
+          },
         }}
       />
       <Component {...pageProps} />
