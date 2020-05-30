@@ -35,10 +35,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
           <link rel="icon" href="/favicon.png" />
           <link rel="apple-touch-icon" href="/app-icon.png" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-          />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
           <style
             data-emotion-css={this.props.ids.join(" ")}
