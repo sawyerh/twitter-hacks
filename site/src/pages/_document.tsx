@@ -31,6 +31,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
             name="description"
             content="Only Tweets with links, from accounts I follow."
           />
+          <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.png" />
           <link rel="apple-touch-icon" href="/app-icon.png" />
           <meta name="apple-mobile-web-app-title" content="Tweet Links" />
