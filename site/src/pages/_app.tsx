@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }): JSX.Element {
       <Global
         styles={{
           body: {
-            background: theme.colors.lighterGray,
+            background: theme.colors.darkerBlue,
             color: theme.colors.gray,
             fontFamily: theme.fontFamily,
             fontSize: theme.fontSizes.body,
@@ -24,11 +24,16 @@ export default function App({ Component, pageProps }): JSX.Element {
           },
           button: {
             appearance: "none",
-            background: "none",
+            backgroundColor: theme.colors.blue,
             border: 0,
+            color: theme.colors.white,
             fontFamily: theme.fontFamily,
             fontSize: theme.fontSizes.body,
             lineHeight: 1,
+
+            ":hover": {
+              background: theme.colors.darkBlue,
+            },
           },
         }}
       />

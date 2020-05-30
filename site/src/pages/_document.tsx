@@ -32,14 +32,13 @@ export default class MyDocument extends Document<StyledDocumentProps> {
             name="description"
             content="Only Tweets with links, from accounts I follow."
           />
-          <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.png" />
-
           <link rel="apple-touch-icon" href="/app-icon.png" />
-          <meta name="apple-mobile-web-app-title" content="Tweet Links" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="theme-color" content={theme.colors.blue} />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
 
           <style
             data-emotion-css={this.props.ids.join(" ")}

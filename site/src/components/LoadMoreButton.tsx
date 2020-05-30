@@ -17,16 +17,10 @@ function LoadingMoreButton(props: LoadingMoreButtonProps): JSX.Element {
     >
       <button
         css={{
-          background: theme.colors.blue,
           borderRadius: 3,
-          color: theme.colors.white,
           fontWeight: "bold",
           padding: theme.spacer * 2,
           width: "100%",
-
-          ":hover": {
-            background: theme.colors.darkBlue,
-          },
         }}
         onClick={props.onClick}
         type="button"

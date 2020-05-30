@@ -10,7 +10,6 @@ function Tweet(props: TweetProps): JSX.Element {
     <article
       css={{
         background: theme.colors.white,
-        border: `1px solid ${theme.colors.lightGray}`,
         borderRadius: 10,
         padding: theme.spacer * 3,
         marginBottom: theme.spacer * 3,

@@ -21,7 +21,6 @@ function RefreshButton(): JSX.Element {
     <div css={{ textAlign: "center" }}>
       <button
         css={{
-          backgroundColor: theme.colors.lightGray,
           borderRadius: 20,
           fontSize: theme.fontSizes.small,
           marginBottom: theme.spacer * 2,
