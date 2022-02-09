@@ -23,9 +23,8 @@ jobs:
 
       - run: npm ci --audit false
 
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWEETED_LINKS }}
+      - name: Set service account
+        run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWEETED_LINKS }} > "$HOME"/gcloud.json
+
+      - name: Deploy
+        run: GOOGLE_APPLICATION_CREDENTIALS="$HOME"/gcloud.json" npm run deploy
