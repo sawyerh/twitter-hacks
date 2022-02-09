@@ -1,3 +1,6 @@
+/**
+ * @file PubSub scheduled functions to manage the timeline on twitter.sawyer.soy
+ */
 import * as functions from "firebase-functions";
 import { DateTime } from "luxon";
 import admin = require("firebase-admin");
