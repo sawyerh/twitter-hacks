@@ -6,9 +6,11 @@
     "deploy": "firebase deploy",
     "dev": "npm run serve & npm run dev --prefix site",
     "predev": "npm run build --prefix functions",
+    "postinstall": "npm install --prefix functions && npm install --prefix site",
     "login": "firebase login",
     "lint": "eslint . --ext .js,.ts,.tsx",
-    "serve": "firebase emulators:start --only functions,hosting"
+    "serve": "firebase emulators:start --only functions,hosting",
+    "ts:check": "tsc"
   },
   "engines": {
     "node": "16"
@@ -19,8 +21,8 @@
     "@typescript-eslint/parser": "^3.0.2",
     "eslint": "^7.1.0",
     "eslint-plugin-react": "^7.20.0",
-    "firebase-tools": "^8.4.1",
-    "typescript": "^3.9.3"
+    "firebase-tools": "^10.1.5",
+    "typescript": "^4.5.0"
   },
   "private": true
 }

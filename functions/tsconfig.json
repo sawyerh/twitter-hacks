@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
     "module": "commonjs",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -9,5 +11,6 @@
     "target": "es2017"
   },
   "compileOnSave": true,
-  "include": ["src", "../types"]
+  "include": ["**/*.ts", "**/*.tsx", "../types"],
+  "exclude": ["node_modules", "../node_modules"]
 }

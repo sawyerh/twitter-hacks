@@ -46,7 +46,7 @@ exports.getTweets = functions.pubsub
  * Remove any tweets older than 2 weeks so that we don't accrue millions of tweets
  */
 exports.removeOldTweets = functions.pubsub
-  .schedule("every 14 days")
+  .schedule("every 336 hours") // 14 days
   .onRun(async () => {
     const twoWeeksAgo = DateTime.local().minus({ days: 14 });
     const tweets = await collection
