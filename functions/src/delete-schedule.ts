@@ -8,7 +8,7 @@ import { writeLog } from "./services/logger";
 /**
  * Get the latest tweets that include an external link
  */
-exports.deleteSchedule = pubsub.schedule("every 1 day").onRun(async () => {
+exports.deleteSchedule = pubsub.schedule("every 24 hours").onRun(async () => {
   writeLog(
     `Deleting tweets and likes that occurred before and disabling all tweets.`
   );
