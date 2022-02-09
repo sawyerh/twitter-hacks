@@ -5,6 +5,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - functions/**
+      - site/**
+      - firebase**
+      - firestore**
+      - .firebaserc
 
 jobs:
   deploy:
