@@ -6,7 +6,7 @@
     "deploy": "firebase deploy",
     "dev": "npm run serve & npm run dev --prefix site",
     "predev": "npm run build --prefix functions",
-    "postinstall": "npm install --prefix functions && npm install --prefix site",
+    "postinstall": "npm ci --prefix functions --audit false && npm ci --prefix site --audit false",
     "login": "firebase login",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "serve": "firebase emulators:start --only functions,hosting"
