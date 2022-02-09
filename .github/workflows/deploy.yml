@@ -32,10 +32,12 @@ jobs:
 
       - name: Deploy
         run: npm run deploy
-        continue-on-error: true
+        # The following is useful to enable if the Firebase deploy is failing for mysterious reasons.
+        # This outputs the debug log file to the Artifacts section of the workflow run.
+        # continue-on-error: true
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: firebase-debug
-          path: firebase-debug.log
-          retention-days: 1
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: firebase-debug
+      #     path: firebase-debug.log
+      #     retention-days: 1
