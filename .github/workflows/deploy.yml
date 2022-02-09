@@ -32,14 +32,10 @@ jobs:
 
       - name: Deploy
         run: npm run deploy
+        continue-on-error: true
 
-  upload-debug-file:
-    runs-on: ubuntu-latest
-    needs: [deploy]
-    if: always() && (needs.deploy.result == 'failure')
-    steps:
       - uses: actions/upload-artifact@v2
         with:
-          name: "firebase-debug.log"
-          path: "firebase-debug.log"
+          name: firebase-debug
+          path: firebase-debug.log
           retention-days: 1
