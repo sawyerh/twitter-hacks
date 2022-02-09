@@ -23,8 +23,10 @@ jobs:
 
       - run: npm ci --audit false
 
-      - name: Set service account
-        run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWEETED_LINKS }} > "$HOME"/gcloud.json
+      - id: "auth"
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWEETED_LINKS }}"
 
       - name: Deploy
-        run: GOOGLE_APPLICATION_CREDENTIALS="$HOME"/gcloud.json" npm run deploy
+        run: npm run deploy
