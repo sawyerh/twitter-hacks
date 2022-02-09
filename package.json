@@ -9,8 +9,7 @@
     "postinstall": "npm install --prefix functions && npm install --prefix site",
     "login": "firebase login",
     "lint": "eslint . --ext .js,.ts,.tsx",
-    "serve": "firebase emulators:start --only functions,hosting",
-    "ts:check": "tsc"
+    "serve": "firebase emulators:start --only functions,hosting"
   },
   "engines": {
     "node": "16"

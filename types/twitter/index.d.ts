@@ -7,10 +7,18 @@ declare module "twitter" {
     /**
      * Send a GET API request
      */
-    get(
+    get<TResponse = Twitter.Tweet[]>(
       path: string,
       params?: Record<string, unknown>
-    ): Promise<Twitter.Tweet[]>;
+    ): Promise<TResponse>;
+
+    /**
+     * Send a POST API request
+     */
+    post<TResponse = Twitter.Tweet>(
+      path: string,
+      params?: Record<string, unknown>
+    ): Promise<TResponse>;
   }
 
   namespace Twitter {
@@ -28,7 +36,8 @@ declare module "twitter" {
       id_str: string;
       created_at: string;
       created_at_timestamp: Date;
-      full_text: string;
+      text?: string; // defined when the request's tweet_mode is NOT set to 'extended'
+      full_text: string; // defined when the request's tweet_mode is set to 'extended'
       entities: {
         urls: URLEntity[];
       };

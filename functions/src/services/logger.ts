@@ -29,7 +29,7 @@ const metadata = {
  */
 export function writeLog(
   event: string,
-  message: string | number,
+  message?: string | number,
   payload?: Record<string, unknown>
 ): void {
   // Data to write to the log. This can be a JSON object with any properties

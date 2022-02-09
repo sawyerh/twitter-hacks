@@ -66,6 +66,7 @@ See the `set-env` script in `functions/package.json`
     "access_token_secret": string,
     "consumer_secret": string,
     "consumer_key": string
+    "username": string
   }
 }
 ```
