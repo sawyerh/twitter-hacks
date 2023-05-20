@@ -121,6 +121,7 @@ async function getLikes() {
  */
 export async function deleteTweets(): Promise<void> {
   writeLog("deleteTweets", "Deleting tweets...", { oldestAllowedDate });
+  if (!oldestAllowedDate) throw new Error("oldestAllowedDate was null");
 
   if (!tweetsToSaveForever || tweetsToSaveForever.length === 0) {
     throw new Error("No tweets to save forever, this seems wrong.");
@@ -170,6 +171,8 @@ export async function deleteTweet(
  */
 export async function deleteLikes(): Promise<void> {
   writeLog("deleteLikes", "Deleting likes...");
+  if (!oldestAllowedDate) throw new Error("oldestAllowedDate was null");
+
   const tweets = await getLikes();
   const deletableTweets = tweets.filter(
     (tweet) => new Date(tweet.created_at).toISOString() < oldestAllowedDate

@@ -21,9 +21,10 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: 16.x
+          node-version: 18.x
 
       - run: npm ci --audit false
+      - run: npm install -g firebase-tools@12
 
       - id: "auth"
         uses: "google-github-actions/auth@v0"
