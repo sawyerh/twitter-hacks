@@ -1,7 +1,7 @@
 import TweetBody from "./TweetBody";
 import TweetMedia from "./TweetMedia";
 import TweetHeader from "./TweetHeader";
-import { jsx } from "@emotion/react";
+
 import theme from "../theme";
 
 function Tweet(props: TweetProps): JSX.Element {

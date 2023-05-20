@@ -1,4 +1,3 @@
-import { jsx } from "@emotion/react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import LoadingIcon from "../components/LoadingIcon";

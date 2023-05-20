@@ -1,4 +1,3 @@
-import { jsx } from "@emotion/react";
 import theme from "../theme";
 import twitter from "twitter-text";
 

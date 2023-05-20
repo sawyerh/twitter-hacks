@@ -4,7 +4,7 @@
   "description": "Public site for displaying the tweets",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "type-check": "tsc"
   },

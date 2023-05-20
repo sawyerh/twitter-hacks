@@ -6,6 +6,7 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
   Head,
+  Html,
   Main,
   NextScript,
 } from "next/document";
@@ -30,7 +31,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
 
   render(): JSX.Element {
     return (
-      <html lang="en-US">
+      <Html lang="en-US">
         <Head>
           <meta
             name="description"
@@ -50,7 +51,7 @@ export default class MyDocument extends Document<StyledDocumentProps> {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
