@@ -1,4 +1,3 @@
-import React from "react";
 // Use TweetEmbed instead of Tweet to debug what the tweet looks like in Twitter
 // import TweetEmbed from "./TweetEmbed";
 import Tweet from "./Tweet";

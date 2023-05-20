@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import Head from "next/head";
 import { jsx } from "@emotion/react";
 import { useEffect, useRef, useState } from "react";

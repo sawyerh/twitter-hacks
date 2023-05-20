@@ -3,14 +3,14 @@
  * to setup the Emotion critical CSS, so I'm not loving all of this.
  */
 import Document, {
+  DocumentContext,
   DocumentInitialProps,
   Head,
   Main,
   NextScript,
 } from "next/document";
-import React from "react";
+
 import { extractCritical } from "@emotion/server";
-import theme from "../theme";
 
 interface StyledDocumentProps {
   ids: Array<string>;
@@ -18,10 +18,14 @@ interface StyledDocumentProps {
 }
 
 export default class MyDocument extends Document<StyledDocumentProps> {
-  static getInitialProps({ renderPage }): Promise<DocumentInitialProps> {
-    const page = renderPage();
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
+    const page = await ctx.renderPage();
+    const initialProps = await Document.getInitialProps(ctx);
     const styles = extractCritical(page.html);
-    return { ...page, ...styles };
+
+    return { ...initialProps, ...page, ...styles };
   }
 
   render(): JSX.Element {

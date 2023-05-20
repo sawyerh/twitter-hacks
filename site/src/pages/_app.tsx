@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { Global, jsx } from "@emotion/react";
+import { Global } from "@emotion/react";
 import theme from "../theme";
 
 export default function App({ Component, pageProps }): JSX.Element {
