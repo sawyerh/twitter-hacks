@@ -12,7 +12,7 @@
     "serve": "firebase emulators:start --only functions,hosting"
   },
   "engines": {
-    "node": "16"
+    "node": "18"
   },
   "dependencies": {},
   "devDependencies": {
@@ -20,7 +20,6 @@
     "@typescript-eslint/parser": "^3.0.2",
     "eslint": "^7.1.0",
     "eslint-plugin-react": "^7.20.0",
-    "firebase-tools": "^10.1.5",
     "typescript": "^4.5.0"
   },
   "private": true
